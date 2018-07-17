@@ -1,0 +1,54 @@
+Mouse Run
+Programming Game
+Copyright (c) 2013 Muhammad Mustaqim
+
+Software Licensed under GNU GPL version 3
+Website: mouse-run.appspot.com
+Contact: mustaqim89g[at]gmail[dot]com
+--------------------------------------------------------------------------------------------------------------------
+
+CHANGES
+-------
+
+----------------------------------
+Mouse Run Version 1 (Build 130501)
+----------------------------------
+- Fixed countdown timing to stop if game ends before time ends.
+- Mouse will no longer be able to print to console/terminal screen (System.out.print/println). This is to prevent messy console and improve performance. In Source set, use GameConfig to turn off this feature. This feature is ON in no-src set.
+- Game includes a security manager to prevent malicious mouse behaviour to sabotage the game (halting the game, redirecting System IOs). In Source set, use GameConfig to turn off this feature. This feature is ON in no-src set.
+
+
+----------------------------------
+Mouse Run Version 1 (Build 130428)
+----------------------------------
+- Optional game countdown timer can be set to limit the length of game play. java GameStarter [width] [column] [numberOfCheese] {durationInSeconds}
+- Each bomb will display the name of the Mouse that planted it.
+- Each Mouse will display the number of cheese it has consumed for a moment after it has consumed a cheese.
+- For Source Code Editors: A new class GameConfig is added to unify all games FIXED settings. Editors can now utilise the class to change settings to the game.
+- The Explorer Mouse source code will be included in all distribution set.
+
+!! IMPORTANT CHANGES !!
+- Under Round Robin implementation, each Mouse is given the chance to report its decision on its next move and they are moved accordingly. However, if a Mouse enters an endless loop or its computation is taking too long, it will also affect other mouse or perhaps the entire game. This version fix this issue by imposing a time limit that a mouse is permitted to take to make its decision. If the mouse keeps producing exceptions or keeps violating the time limit, the game will force the mouse to retire and it will no longer respond to game events. It is effectively eliminated from the game and will never be a winner for the game. It makes code efficiency more important now.
+- Problematic Mouse and its source code is included to demonstrate how the new implementation will work.
+
+
+----------------------------------
+Mouse Run Version 1 (Build 130425)
+----------------------------------
+- Fixed issue whereby Round Robin implementation is unfair. This is an issue when two or more mouse appear to reach the cheese or bomb first. Each thread turn will use the time taken for each Mouse to make its decision (yes code efficiency is important now) to determine the order of the mice moves (ie. who gets to go first). 
+- The Emplorer Mouse (class only, no source) is now include as part of each distribution.
+
+
+----------------------------------
+Mouse Run Version 1 (Build 130422)
+----------------------------------
+- When a Mouse encountered an exception, the name of the Mouse is printed on the console along with the stack trace.
+- SimpleMouse class has been added to demonstrate the game play.
+- Bash script included for OSX variant.
+- Fix for MouseLoader fail to load Mouse in directory with URL encodings.
+
+
+----------------------------------
+Mouse Run Version 1 (Build 130421)
+----------------------------------
+- Initial Release
